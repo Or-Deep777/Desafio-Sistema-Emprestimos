@@ -18,7 +18,7 @@ const clienteService = {
     async create(data){
         const {name, cpf, age, income, location} = data
         const [resultado] = await db.query(
-            'INSERT INTO clientes (nome,cpf,idade,renda,estado VALUES (?,?,?,?,?)',
+            'INSERT INTO clientes (nome,cpf,idade,renda,estado) VALUES (?,?,?,?,?)',
             [name,cpf,age,income,location]
         )
         return {id: resultado.insertId, name,cpf,age,income,location}
