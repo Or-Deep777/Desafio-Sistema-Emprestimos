@@ -52,10 +52,10 @@ const clienteController = {
         try{
             const {id} = req.params
             const deleted = await clienteService.delete(id)
-            if (!update) {
+            if (!deleted) {
                 return res.status(404).json({message:'Cliente não encontrado'})
             }
-            return res.status(204).send()
+            return res.status(200).json({message:'Cliente deletado com sucesso'})
         } catch (error) {
             return res.status(500).json({message:'Erro ao excluir cliente'})
         }

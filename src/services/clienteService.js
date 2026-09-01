@@ -44,6 +44,7 @@ const clienteService = {
     },
 
     async delete(id){
+        await db.query('DELETE FROM clientes WHERE id = ?',[id])
         const [resultado] = await db.query('DELETE FROM clientes WHERE id = ?',[id])
         return resultado.affectedRows > 0
     },
