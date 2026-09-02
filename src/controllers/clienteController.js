@@ -51,7 +51,7 @@ const clienteController = {
     async delete(req,res){
         try{
             const {id} = req.params
-            const deleted = await clienteService.delete(id)
+            const deleted = await clienteService.delete(Number(id))
             if (!deleted) {
                 return res.status(404).json({message:'Cliente não encontrado'})
             }
